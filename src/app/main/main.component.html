@@ -1,1 +1,17 @@
-<p>main works!</p>
+<app-intro></app-intro>
+<app-menu-bar></app-menu-bar>
+<div class="row pb-3">
+  <div class="col-5 ms-5 ">
+    <app-cards [posts]="postsEsquerda"></app-cards>
+  </div>
+  <div class="ms-5 col-5">
+    <div class="ms-5">
+      <app-cards [posts]="postsDireita"></app-cards>
+    </div>
+  </div>
+</div>
+
+
+
+
+

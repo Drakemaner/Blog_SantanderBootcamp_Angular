@@ -1,1 +1,11 @@
-<p>cards works!</p>
+<div *ngFor="let post of posts">
+  <div class="container-fluid mt-4">
+    <div class="text-start border-bottom pb-3">
+      <div class="col-12 mb-3">
+        <h4>{{post.titulo}}</h4>
+        <span>Texto Ruim</span>
+      </div>
+      <small>Gênero: {{post.genero}}</small>
+    </div>
+  </div>
+</div>
