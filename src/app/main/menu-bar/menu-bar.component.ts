@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, AfterContentChecked} from '@angular/core';
 
 @Component({
   selector: 'app-menu-bar',
@@ -8,11 +8,24 @@ import {Component, OnInit, Output} from '@angular/core';
 export class MenuBarComponent implements OnInit {
 
   @Output()
-  filtroGenero : string = ''
+  filtroGenero = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  filtrar(filtro : string) {
+    if(filtro == 'Política'){
+      this.filtroGenero.emit('Política')
+    }
+    else if(filtro == 'Entreterimento'){
+      this.filtroGenero.emit('Entreterimento')
+    }
+    else if(filtro = 'Esporte'){
+      this.filtroGenero.emit('Esporte')
+    }
   }
 
 }

@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0; /* Remova margens para garantir que a página ocupe toda a largura da janela */
+  overflow-x: hidden; /* Oculte a barra de rolagem horizontal */
+}
+
+

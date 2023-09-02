@@ -5,6 +5,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { CardsComponent } from './cards/cards.component';
+import { PostComponent } from './post/post.component';
 
 
 
@@ -14,7 +15,8 @@ import { CardsComponent } from './cards/cards.component';
     IntroComponent,
     MenuBarComponent,
     MainComponent,
-    CardsComponent
+    CardsComponent,
+    PostComponent
   ],
   imports: [
     CommonModule,
