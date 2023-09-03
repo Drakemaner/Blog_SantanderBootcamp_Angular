@@ -66,8 +66,8 @@ export class MainComponent implements OnInit {
         this.postsEsquerda = []
         this.postsDireita = []
         this.organizarPosts()
-        this.postsEsquerda = this.postsEsquerda.filter((post: Post) => post.titulo.toLowerCase().includes(this.filtroTexto))
-        this.postsDireita = this.postsDireita.filter((post: Post) => post.titulo.toLowerCase().includes(this.filtroTexto))
+        this.postsEsquerda = this.postsEsquerda.filter((post: Post) => post.titulo.toLowerCase().includes(this.filtroTexto.toLowerCase()))
+        this.postsDireita = this.postsDireita.filter((post: Post) => post.titulo.toLowerCase().includes(this.filtroTexto.toLowerCase()))
     }
   }
 }
