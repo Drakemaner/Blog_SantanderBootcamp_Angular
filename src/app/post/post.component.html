@@ -1,0 +1,19 @@
+<div class="border-top">
+  <div class="container-fluid col-10 pt-5 text-center">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="mb-4">{{post[0].titulo}}</h1>
+        <span class="text-secondary">{{post[0].descricao}}</span>
+        <p class="mt-5">{{post[0].texto}}</p>
+      </div>
+    </div>
+    <div class="border-start border-bottom border-end">
+      <nav class="ms-5 navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <button class="nav-link link-secondary" (click)="curtirPost()"><small>Curtir ({{post[0].numeroCurtidas}})</small></button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+

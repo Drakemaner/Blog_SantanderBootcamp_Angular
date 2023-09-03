@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {MainComponent} from "./main.component";
-import {PostComponent} from "./post/post.component";
+import {PostModule} from "../post/post.module";
+import {PostComponent} from "../post/post.component";
 
+
+function retornarPostModule(){
+  return PostModule
+}
 
 const routes : Routes = [
   {
@@ -12,7 +17,7 @@ const routes : Routes = [
   },
   {
     path: 'posts/:id',
-    component: PostComponent
+    loadChildren: retornarPostModule
   }
 ]
 @NgModule({

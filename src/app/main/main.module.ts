@@ -5,7 +5,8 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { CardsComponent } from './cards/cards.component';
-import { PostComponent } from './post/post.component';
+import {FormsModule} from "@angular/forms";
+
 
 
 
@@ -15,12 +16,12 @@ import { PostComponent } from './post/post.component';
     IntroComponent,
     MenuBarComponent,
     MainComponent,
-    CardsComponent,
-    PostComponent
+    CardsComponent
   ],
-  imports: [
-    CommonModule,
-    MainRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        MainRoutingModule,
+        FormsModule
+    ]
 })
 export class MainModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, AfterContentChecked } from '@angular/core';
 import {Post} from "../Interfaces/Post";
-import {postsSalvos} from "./Posts/PostsSalvos";
+import {postsSalvos} from "../shared/Posts/PostsSalvos";
 import {$e} from "@angular/compiler/src/chars";
 
 @Component({
@@ -13,7 +13,8 @@ export class MainComponent implements OnInit {
   postsEsquerda : any = []
   postsDireita : any = []
   filtroGenero : string = ''
-  filtroAtual : string = ''
+  filtroGeneroAtual : string = ''
+  filtroTexto : string = ''
 
   constructor() { }
 
@@ -22,11 +23,8 @@ export class MainComponent implements OnInit {
   }
 
   ngAfterContentChecked(){
-    console.log(this.filtroGenero)
     this.filtrarPosts()
-
   }
-
 
   organizarPosts(){
     for (let i = 0; i < postsSalvos.length; i++){
@@ -39,24 +37,37 @@ export class MainComponent implements OnInit {
     }
   }
 
-  receberValores(filtro : string){
+  receberFiltroGenero(filtro : string){
     this.filtroGenero = filtro
   }
-  filtrarPosts(){
 
-    if(this.filtroAtual != this.filtroGenero){
-      this.postsEsquerda = []
-      this.postsDireita = []
-      this.organizarPosts()
-      this.postsEsquerda = this.postsEsquerda.filter((post: Post) => post.genero == this.filtroGenero)
-      this.postsDireita = this.postsDireita.filter((post: Post) => post.genero == this.filtroGenero)
-      this.filtroAtual = this.filtroGenero
+  receberFiltroTexto(filtro : string){
+    this.filtroTexto = filtro
+  }
+
+  filtrarPosts(){
+    if(this.filtroTexto == ''){
+      if(this.filtroGeneroAtual != this.filtroGenero){
+        this.postsEsquerda = []
+        this.postsDireita = []
+        this.organizarPosts()
+        this.postsEsquerda = this.postsEsquerda.filter((post: Post) => post.genero == this.filtroGenero)
+        this.postsDireita = this.postsDireita.filter((post: Post) => post.genero == this.filtroGenero)
+        this.filtroGeneroAtual = this.filtroGenero
+      }
+      else{
+        this.postsEsquerda = []
+        this.postsDireita = []
+        this.organizarPosts()
+        this.filtroGeneroAtual = ''
+      }
     }
-    else{
-      this.postsEsquerda = []
-      this.postsDireita = []
-      this.organizarPosts()
-      this.filtroAtual = ''
+    else {
+        this.postsEsquerda = []
+        this.postsDireita = []
+        this.organizarPosts()
+        this.postsEsquerda = this.postsEsquerda.filter((post: Post) => post.titulo.toLowerCase().includes(this.filtroTexto))
+        this.postsDireita = this.postsDireita.filter((post: Post) => post.titulo.toLowerCase().includes(this.filtroTexto))
     }
   }
 }
